@@ -1,0 +1,57 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#contents {
+  width: 100%;
+  height: 98vh;
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+  clear: both;
+}
+
+#operate {
+  padding: 5px;
+}
+
+#left,
+#right {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+#left {
+  top: 0;
+  left: 0;
+}
+
+#right {
+  top: 0;
+  right: 0;
+}
+
+#aceEditorPane,#canvasPane {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #d3d3d3;
+  box-sizing: border-box;
+}
+
+#canvasPane {
+  margin: 0.7em 0px;
+}
+
+#error {
+  padding: 5px;
+}

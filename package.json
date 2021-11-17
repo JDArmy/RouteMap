@@ -1,0 +1,39 @@
+{
+  "name": "routemap",
+  "version": "1.0.0",
+  "description": "Red Teaming Assessment Scoring System",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack-dev-server --progress"
+  },
+  "keywords": [],
+  "author": "Monyer",
+  "license": "Apache-2.0",
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RouteMap/RTASS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RouteMap/RTASS/issues"
+  },
+  "homepage": "https://github.com/RouteMap/RTASS#readme",
+  "devDependencies": {
+    "acorn": "^8.5.0",
+    "arraybuffer-loader": "^1.0.8",
+    "copy-webpack-plugin": "^9.1.0",
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1",
+    "uuid": "^8.3.2",
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
+  },
+  "dependencies": {
+    "ace-builds": "^1.4.13",
+    "vis-network": "^9.1.0",
+    "vue": "^2.6.14"
+  }
+}
