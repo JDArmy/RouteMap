@@ -3,6 +3,8 @@ a component of red teaming for generate route map.
 
 <http://jd.army/RouteMap/>
 
+![snapshoot](./snapshoot/snapshoot.jpg)
+
 Use dot language:
 
 ```dot
