@@ -11,8 +11,13 @@ RouteMap.defaultOptions = {
     font: {
       color: 'blue',
       size: 16,
+      multi: true,
+      bold: {
+        color: "red",
+      },
     },
-    shape: 'circle'
+    shape: 'circle',
+    shadow: true,
   },
   edges: {
     length: 200,
@@ -21,7 +26,7 @@ RouteMap.defaultOptions = {
       color: '#aaa',
       size: 10,
     },
-    width: 3
+    width: 3,
   },
 };
 
@@ -54,6 +59,16 @@ RouteMap.parseData = function (dotContent) {
     }
   })
 
+  data.edges = data.edges.map(edge=>{
+    //处理 edge 中的 fontbackground
+    if(edge.fontbackground){
+      edge.font = {
+        background: edge.fontbackground
+      };
+    }
+    return edge;
+  });
+
   data.nodes = data.nodes.map(node=>{
     //处理node中的icon
     if(node.icon && stixIcon[node.icon]){
@@ -64,6 +79,40 @@ RouteMap.parseData = function (dotContent) {
         color: stixIcon[node.icon].color,
         size: 50,
       };
+    }
+
+    if(!node.font) node.font = {};
+    //处理node中的 fontboldcolor
+    if(node.fontboldcolor){
+      node.font['bold'] = {
+        color: node.fontboldcolor
+      }
+    }
+    //处理node中的 fontbackground
+    if(node.fontbackground){
+      node.font['background'] = node.fontbackground;
+    }
+    //处理node中的 margin
+    if(!node.margin) node.margin = {};
+    if(node.margintop){
+      node.margin = {
+        top: node.margintop
+      }
+    }
+    if(node.marginleft){
+      node.margin = {
+        left: node.marginleft
+      }
+    }
+    if(node.marginright){
+      node.margin = {
+        right: node.marginright
+      }
+    }
+    if(node.marginbottom){
+      node.margin = {
+        bottom: node.marginbottom
+      }
     }
     return node;
   });
