@@ -8,46 +8,48 @@ a component of red teaming for generate route map.
 Use dot language:
 
 ```dot
-digraph LR {
+digraph LR{
     // 我们使用图标名来控制图表方向，可选值有：LR、RL、UD、DU
 
     // 可以设置全局的node和edge属性
-    // node [shape=circle fontcolor=blue, fontsize=16]
+    // node [
+    //   shape=circle 
+    //   fontcolor=blue, 
+    //   fontsize=16
+    // ]
     // edge [
-    //   length=200,
-    //   color=lightgray,
+    //   length=200, 
+    //   color=lightgray, 
     //   fontcolor=lightgray,
-    //   penwidth=3
+    //   penwidth=3,
     // ]
 
-    hacker[label = "京东蓝军" icon = Threat_Actor]
+    hacker[label="JD.Army" icon=Threat_Actor]
     target[
-        label = "京东集团",
-        icon = Identity
-        fontsize = 20,
-        fontcolor = purple
+    label="Enterprise", 
+    icon=Identity 
+    fontsize=20,  
+    fontcolor=purple 
     ]
-    hacker -> target[color = red fontcolor = "#666" label = "开展实战攻防演练"]
+    hacker -> target[color=red fontcolor="#666" label="开展实战攻防演练" ]
     // hacker -- target
 
-    "主站"[icon = Identity]
-    collinfo[label = "信息收集" icon = Intrusion_Set]
-    SQLin[label = "SQL注入漏洞" icon = "Vulnerability"]
+    "主站"[icon=Identity]
+    collinfo[label="信息收集" icon=Intrusion_Set]
+    SQLin[label="SQL注入漏洞" icon="Vulnerability"]
     target -> collinfo -> "主站" -> SQLin
 
-    RCE[label = "远程命令执行漏洞" icon = "Vulnerability"]
-    "sso.jd"[label = "统一登录系统\nsso.jd.com" icon = Identity]
-    collinfo -> "sso.jd" -> RCE[label = "获取服务器权限"]
+    RCE[label="远程<b>命令执行</b>漏洞" icon="Vulnerability" fontboldcolor="green"]
+    "sso.target"[label="统一登录系统\\nsso.target.com" icon=Identity margin=15]
+    collinfo -> "sso.target" -> RCE[label="获取服务器权限"]
 
-    "UDF提权"[icon = Attack_Pattern]
-    "白利用提权"[icon = Attack_Pattern]
-    "sso.jd" -> {
-        "UDF提权"; "白利用提权"
-    }[label = "提权"]
+    "UDF提权"[icon=Attack_Pattern]
+    "白利用提权"[icon=Attack_Pattern fontbackground="red" ]
+    "sso.target" -> {"UDF提权"; "白利用提权"}[label="提权" fontbackground="red"]
 
-    RCE -> "UDF提权"[style = "dashed" arrowhead = box]
-    RCE -> "白利用提权"[style = "dotted" penwidth = 1 dir = both arrowhead = diamond arrowtail = box]
-
+    RCE -> "UDF提权"[style="dashed" arrowhead=box]
+    RCE -> "白利用提权"[style="dotted" penwidth=1 dir=both arrowhead=diamond arrowtail=box]
+    
 
     // 本系统使用vis-network做图形绘制，使用dot language作为绘制语言，
     // 详见：https://visjs.github.io/vis-network/examples/network/data/dotLanguage/dotEdgeStyles.html

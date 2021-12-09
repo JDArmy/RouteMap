@@ -48,12 +48,12 @@ new Vue({
       target -> collinfo -> "主站" -> SQLin
 
       RCE[label="远程<b>命令执行</b>漏洞" icon="Vulnerability" fontboldcolor="green"]
-      "sso.jd"[label="统一登录系统\\nsso.jd.com" icon=Identity margin=15]
-      collinfo -> "sso.jd" -> RCE[label="获取服务器权限"]
+      "sso.target"[label="统一登录系统\\nsso.target.com" icon=Identity margin=15]
+      collinfo -> "sso.target" -> RCE[label="获取服务器权限"]
 
       "UDF提权"[icon=Attack_Pattern]
       "白利用提权"[icon=Attack_Pattern fontbackground="red" ]
-      "sso.jd" -> {"UDF提权"; "白利用提权"}[label="提权" fontbackground="red"]
+      "sso.target" -> {"UDF提权"; "白利用提权"}[label="提权" fontbackground="red"]
 
       RCE -> "UDF提权"[style="dashed" arrowhead=box]
       RCE -> "白利用提权"[style="dotted" penwidth=1 dir=both arrowhead=diamond arrowtail=box]
